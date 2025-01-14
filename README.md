@@ -39,7 +39,7 @@ Run the following command to build the image:
 If you need to modify the image name, edit `build.sh`, locate the following line, and replace it:
 
 ```bash
-IMAGE_NAME="custom_image"  # Replace custom_image with your desired name
+IMAGE_NAME="my_image"  # Replace my_image with your desired name
 ```
 
 ## Run Container
@@ -53,7 +53,7 @@ The run script will start the container. The default image name is `yolo`. You c
 To modify the image name, edit `run.sh`, locate the following line, and replace it:
 
 ```bash
-IMAGE_NAME="custom_image"  # Replace custom_image with your desired image name
+IMAGE_NAME="my_image"  # Replace my_image with your desired image name
 ```
 
 ## Modify Configuration File

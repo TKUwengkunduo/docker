@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Default image name (can be modified by the user)
-IMAGE_NAME="yolo"
+IMAGE_NAME="my_image"
 
 
 # 定義顏色

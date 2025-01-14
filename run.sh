@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Default image name (must match the name in build.sh)
-IMAGE_NAME="yolo"
+IMAGE_NAME="my_image"
 
 # 定義顏色
 RED='\033[0;31m'
