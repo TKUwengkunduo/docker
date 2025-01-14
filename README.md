@@ -4,6 +4,51 @@
 
 This project provides a Docker containerized environment, including necessary configuration files and scripts, to help users quickly start and run the project. Please follow the steps below to set up and use it.
 
+## Prerequisites
+
+Before proceeding, ensure that the necessary drivers and NVIDIA Container Toolkit are installed.
+
+### Install NVIDIA Driver
+
+Use the following command to install the NVIDIA driver (replace `550` with the required version):
+
+```bash
+sudo apt install nvidia-driver-550
+```
+
+### Install NVIDIA Container Toolkit
+
+Follow these steps to install the NVIDIA Container Toolkit:
+
+1. Add the GPG key and repository:
+
+```bash
+curl -fsSL https://nvidia.github.io/libnvidia-container/gpgkey | sudo gpg --dearmor -o /usr/share/keyrings/nvidia-container-toolkit-keyring.gpg \
+  && curl -s -L https://nvidia.github.io/libnvidia-container/stable/deb/nvidia-container-toolkit.list | \
+    sed 's#deb https://#deb [signed-by=/usr/share/keyrings/nvidia-container-toolkit-keyring.gpg] https://#g' | \
+    sudo tee /etc/apt/sources.list.d/nvidia-container-toolkit.list
+```
+
+2. Enable the experimental repository:
+
+```bash
+sed -i -e '/experimental/ s/^#//g' /etc/apt/sources.list.d/nvidia-container-toolkit.list
+```
+
+3. Update the package list:
+
+```bash
+sudo apt-get update
+```
+
+4. Install the NVIDIA Container Toolkit:
+
+```bash
+sudo apt-get install -y nvidia-container-toolkit
+```
+
+For more detailed instructions, visit the [official NVIDIA documentation](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html).
+
 ## Download the Project
 
 Clone the project to your local workspace using Git:
@@ -24,7 +69,7 @@ chmod +x run.sh
 
 ## Build Docker Image
 
-Use the provided Dockerfile to build the Docker image. By default, the image name is `custom_image`, but you can specify a custom name during the build process.
+Use the provided Dockerfile to build the Docker image. By default, the image name is `my_image`, but you can specify a custom name during the build process.
 
 ### Build Docker Image
 
@@ -44,7 +89,7 @@ IMAGE_NAME="my_image"  # Replace my_image with your desired name
 
 ## Run Container
 
-The run script will start the container. The default image name is `yolo`. You can start it with the following command:
+The run script will start the container. The default image name is `my_image`. You can start it with the following command:
 
 ```bash
 ./run.sh
