@@ -1,9 +1,11 @@
 # Docker
 
 ## Introduction
+
 This project provides a Docker containerized environment, including necessary configuration files and scripts, to help users quickly start and run the project. Please follow the steps below to set up and use it.
 
 ## Download the Project
+
 Clone the project to your local workspace using Git:
 
 ```bash
@@ -12,6 +14,7 @@ cd docker
 ```
 
 ## File Permissions
+
 Ensure the scripts are executable by running the following commands:
 
 ```bash
@@ -20,9 +23,11 @@ chmod +x run.sh
 ```
 
 ## Build Docker Image
+
 Use the provided Dockerfile to build the Docker image. By default, the image name is `custom_image`, but you can specify a custom name during the build process.
 
 ### Build Docker Image
+
 Run the following command to build the image:
 
 ```bash
@@ -30,6 +35,7 @@ Run the following command to build the image:
 ```
 
 ### Customize Image Name
+
 If you need to modify the image name, edit `build.sh`, locate the following line, and replace it:
 
 ```bash
@@ -37,19 +43,21 @@ IMAGE_NAME="custom_image"  # Replace custom_image with your desired name
 ```
 
 ## Run Container
-The run script will start the container. The default container name is `custom_container`. You can start it with the following command:
+
+The run script will start the container. The default image name is `yolo`. You can start it with the following command:
 
 ```bash
 ./run.sh
 ```
 
-To modify the container name or other configurations, edit `run.sh`, locate the following line, and replace it:
+To modify the image name, edit `run.sh`, locate the following line, and replace it:
 
 ```bash
-CONTAINER_NAME="custom_container"  # Replace custom_container with your desired name
+IMAGE_NAME="custom_image"  # Replace custom_image with your desired image name
 ```
 
 ## Modify Configuration File
+
 The project provides a `tmux.conf` file with the following settings:
 
 - Enable mouse mode: `set -g mouse on`
@@ -62,6 +70,7 @@ To customize, directly modify the `tmux.conf` file and restart tmux to apply cha
 ## Appendix
 
 ### Check Running Containers
+
 Use the following command to check for running containers:
 
 ```bash
@@ -69,6 +78,7 @@ docker ps
 ```
 
 ### Stop a Container
+
 Use the following command to stop a running container:
 
 ```bash
@@ -76,6 +86,7 @@ docker stop <container_name>
 ```
 
 ### Remove a Container
+
 To remove a container, use:
 
 ```bash
@@ -83,6 +94,7 @@ docker rm <container_name>
 ```
 
 ### Remove an Image
+
 To delete an image, use the following command:
 
 ```bash
