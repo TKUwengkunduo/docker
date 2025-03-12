@@ -10,7 +10,8 @@ YELLOW='\033[1;33m'
 NC='\033[0m' # 無顏色
 
 # Get the directory to mount (parent of the script's location)
-MOUNT_DIR=$(dirname "$(cd "$(dirname "$0")" && pwd)")
+# MOUNT_DIR=$(dirname "$(cd "$(dirname "$0")" && pwd)")               # Get the parent directory of the script's location
+MOUNT_DIR=$(dirname "$(dirname "$(cd "$(dirname "$0")" && pwd)")")  # Get the grandparent directory of the script's location
 
 # Check if GPU is available
 if command -v nvidia-smi &> /dev/null; then
@@ -24,6 +25,7 @@ fi
 # Run the Docker container
 echo -e "${YELLOW}Running Docker container from image '$IMAGE_NAME'...${NC}"
 docker run -it --rm \
+           -v /dev:/dev \
            -v "$MOUNT_DIR":/workspace \
            -v /tmp/.X11-unix:/tmp/.X11-unix \
            -v ${HOME}/.Xauthority:/home/${user}/.Xauthority \

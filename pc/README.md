@@ -8,7 +8,7 @@ This project provides a Docker containerized environment, including necessary co
 
 Before proceeding, ensure that the necessary drivers and NVIDIA Container Toolkit are installed.
 
-### Install NVIDIA Driver(Except Jetson)
+### Install NVIDIA Driver
 
 Use the following command to install the NVIDIA driver (replace `550` with the required version):
 
@@ -16,7 +16,7 @@ Use the following command to install the NVIDIA driver (replace `550` with the r
 sudo apt install nvidia-driver-550
 ```
 
-### Install NVIDIA Container Toolkit(Except Jetson)
+### Install NVIDIA Container Toolkit
 
 Follow these steps to install the NVIDIA Container Toolkit:
 
@@ -51,16 +51,11 @@ For more detailed instructions, visit the [official NVIDIA documentation](https:
 
 ## Download the Project
 
-Clone the repository and directly navigate to your preferred environment:
+Clone the project to your local workspace using Git:
 
 ```bash
 git clone https://github.com/TKUwengkunduo/docker.git
-
-# For PC environment
-cd docker/pc
-
-# For Jetson environment
-cd docker/jetson
+cd docker
 ```
 
 ## File Permissions
