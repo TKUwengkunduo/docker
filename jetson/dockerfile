@@ -65,6 +65,7 @@ RUN python -m pip install --upgrade pip
 
 
 
+
 # ================= Install Image Tool ======================
 RUN apt-get remove -y python3-sympy
 RUN pip install ultralytics
@@ -79,6 +80,15 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
 # ================= Other Tool ======================
 RUN pip install dynamixel_sdk       # Dynamixel Motor
+
+
+# ================= ROS2 Setup ======================
+# Localhost-Only Communication
+RUN echo "export ROS_LOCALHOST_ONLY=1" >> /home/work/.bashrc
+# Set Domain ID
+# RUN echo "export ROS_DOMAIN_ID=11" >> /home/work/.bashrc
+
+
 
 
 # ================= Copy tmux Configuration ======================
