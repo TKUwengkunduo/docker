@@ -57,7 +57,7 @@ Clone the repository and directly navigate to your preferred environment:
 git clone https://github.com/TKUwengkunduo/docker.git
 
 # For PC environment
-cd docker/ubuntu22
+cd docker/ubuntu
 
 # For Jetson environment
 cd docker/jetson_r36
