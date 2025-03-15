@@ -1,8 +1,7 @@
 #!/bin/bash
 
 # Default image name (must match the name in build.sh)
-IMAGE_NAME="my_image"
-# IMAGE_NAME="l4t-ml-ros2:l4t-r36.4.3-l4t-ml"
+IMAGE_NAME="my_ubuntu22"
 
 # 定義顏色
 RED='\033[0;31m'
@@ -36,7 +35,6 @@ docker run -it --rm \
            --net=host \
            --ipc=host \
            --privileged \
-           --runtime nvidia \
            $GPU_FLAG \
            "$IMAGE_NAME"
 

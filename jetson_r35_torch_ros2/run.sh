@@ -1,7 +1,8 @@
 #!/bin/bash
 
 # Default image name (must match the name in build.sh)
-IMAGE_NAME="my_image"
+IMAGE_NAME="my_r35_torch_ros2"
+# IMAGE_NAME="dustynv/l4t-ml:r35.4.1"
 
 # 定義顏色
 RED='\033[0;31m'
@@ -12,15 +13,6 @@ NC='\033[0m' # 無顏色
 # Get the directory to mount (parent of the script's location)
 # MOUNT_DIR=$(dirname "$(cd "$(dirname "$0")" && pwd)")               # Get the parent directory of the script's location
 MOUNT_DIR=$(dirname "$(dirname "$(cd "$(dirname "$0")" && pwd)")")  # Get the grandparent directory of the script's location
-
-# Check if GPU is available
-if command -v nvidia-smi &> /dev/null; then
-  GPU_FLAG="--gpus all"
-  echo -e "${GREEN}GPU detected.${NC} Enabling GPU support for Docker."
-else
-  GPU_FLAG=""
-  echo -e "${YELLOW}Warning:${NC} GPU not detected. Running without GPU support."
-fi
 
 # Run the Docker container
 echo -e "${YELLOW}Running Docker container from image '$IMAGE_NAME'...${NC}"
@@ -35,7 +27,7 @@ docker run -it --rm \
            --net=host \
            --ipc=host \
            --privileged \
-           $GPU_FLAG \
+           --runtime nvidia \
            "$IMAGE_NAME"
 
 # Check if the container ran successfully
