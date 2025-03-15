@@ -98,7 +98,8 @@ RUN usermod -aG video work
 USER work
 
 RUN sudo apt-get install -y libopencv-calib3d-dev
-RUN pip install opencv-contrib-python
+RUN pip3 install opencv-contrib-python
+RUN pip3 install torchvision
 
 # Default container startup command (modify as needed)
 CMD ["bash"]
