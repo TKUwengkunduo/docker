@@ -1,8 +1,7 @@
 #!/bin/bash
 
 # Default image name (must match the name in build.sh)
-IMAGE_NAME="my_r35_torch_ros2"
-# IMAGE_NAME="dustynv/l4t-ml:r35.4.1"
+IMAGE_NAME="my_jetson_r35"
 
 # 定義顏色
 RED='\033[0;31m'
@@ -13,6 +12,7 @@ NC='\033[0m' # 無顏色
 # Get the directory to mount (parent of the script's location)
 # MOUNT_DIR=$(dirname "$(cd "$(dirname "$0")" && pwd)")               # Get the parent directory of the script's location
 MOUNT_DIR=$(dirname "$(dirname "$(cd "$(dirname "$0")" && pwd)")")  # Get the grandparent directory of the script's location
+
 
 # Run the Docker container
 echo -e "${YELLOW}Running Docker container from image '$IMAGE_NAME'...${NC}"

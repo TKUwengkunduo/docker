@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Default image name (can be modified by the user)
-IMAGE_NAME="my_r35_torch_ros2"
+IMAGE_NAME="my_jetson_r35"
 
 
 # 定義顏色

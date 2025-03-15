@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Default image name (can be modified by the user)
-IMAGE_NAME="my_ubuntu22"
+IMAGE_NAME="my_jetson_r36"
 
 
 # 定義顏色

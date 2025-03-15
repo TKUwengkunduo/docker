@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Default image name (must match the name in build.sh)
-IMAGE_NAME="my_ubuntu22"
+IMAGE_NAME="my_ubuntu"
 
 # 定義顏色
 RED='\033[0;31m'

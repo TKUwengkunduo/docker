@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Default image name (can be modified by the user)
-IMAGE_NAME="my_r36_torch_ros2"
+IMAGE_NAME="my_ubuntu"
 
 
 # 定義顏色
