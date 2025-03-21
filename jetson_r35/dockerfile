@@ -66,7 +66,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
 
 # ================= Other Tool ======================
-# RUN pip install dynamixel_sdk       # Dynamixel Motor
+RUN pip install dynamixel_sdk       # Dynamixel Motor
 
 
 
