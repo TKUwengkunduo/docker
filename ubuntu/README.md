@@ -55,7 +55,7 @@ Clone the project to your local workspace using Git:
 
 ```bash
 git clone -b yolox https://github.com/TKUwengkunduo/docker.git
-cd docker/ubuntu
+cd docker
 ```
 
 ## File Permissions
