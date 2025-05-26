@@ -54,13 +54,11 @@ For more detailed instructions, visit the [official NVIDIA documentation](https:
 Clone the repository and directly navigate to your preferred environment:
 
 ```bash
-git clone https://github.com/TKUwengkunduo/docker.git
+git clone -b yolox https://github.com/TKUwengkunduo/docker.git
 
-# For PC environment
+# For PC Ubuntu environment
 cd docker/ubuntu
 
-# For Jetson environment
-cd docker/jetson_r36
 ```
 
 ## File Permissions
