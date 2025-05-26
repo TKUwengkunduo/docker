@@ -54,8 +54,8 @@ For more detailed instructions, visit the [official NVIDIA documentation](https:
 Clone the project to your local workspace using Git:
 
 ```bash
-git clone https://github.com/TKUwengkunduo/docker.git
-cd docker
+git clone -b yolox https://github.com/TKUwengkunduo/docker.git
+cd docker/ubuntu
 ```
 
 ## File Permissions
