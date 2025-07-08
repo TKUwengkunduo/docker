@@ -35,5 +35,4 @@ if [ $? -eq 0 ]; then
   echo -e "${GREEN}Success:${NC} Docker container exited successfully."
 else
   echo -e "${RED}Error:${NC} Docker container failed to run."
-  exit 1
 fi

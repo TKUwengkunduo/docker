@@ -43,5 +43,4 @@ if [ $? -eq 0 ]; then
   echo -e "${GREEN}Success:${NC} Docker image '$IMAGE_NAME' built successfully!"
 else
   echo -e "${RED}Error:${NC} Failed to build Docker image."
-  exit 1
 fi

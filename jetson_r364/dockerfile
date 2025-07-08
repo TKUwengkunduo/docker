@@ -8,6 +8,8 @@ ENV PATH=/usr/local/bin:$PATH
 
 # ================= Basic System Setup ======================
 # Update the system and install essential tools
+RUN rm -rf /etc/apt/sources.list.d/ros2.list
+
 RUN apt-get update && apt-get install -y --no-install-recommends \
     build-essential \
     curl \
@@ -68,7 +70,7 @@ RUN python3 -m pip install --upgrade pip
 
 # ================= Install Image Tool ======================
 RUN apt-get remove -y python3-sympy
-RUN pip install ultralytics
+#RUN pip install ultralytics
 
 
 # ================= Camera Tool ======================
@@ -79,10 +81,12 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
 
 # ================= Other Tool ======================
-RUN pip install dynamixel_sdk       # Dynamixel Motor
+#RUN pip install dynamixel_sdk       # Dynamixel Motor
 
 
 # ================= ROS2 Packages ======================
+
+RUN apt update
 RUN apt purge -y \
     opencv-dev \
     opencv-libs \
@@ -91,16 +95,33 @@ RUN apt purge -y \
     opencv-python \
     opencv-scripts
 
+
+    
+# Fetch and install the ROS APT source package
+RUN export ROS_APT_SOURCE_VERSION=$(curl -s https://api.github.com/repos/ros-infrastructure/ros-apt-source/releases/latest | grep -F "tag_name" | awk -F\" '{print $4}') && \
+    curl -L -o /tmp/ros2-apt-source.deb "https://github.com/ros-infrastructure/ros-apt-source/releases/download/${ROS_APT_SOURCE_VERSION}/ros2-apt-source_${ROS_APT_SOURCE_VERSION}.$(lsb_release -c | awk '{print $2}')_all.deb" && \
+    dpkg -i /tmp/ros2-apt-source.deb && \
+    rm /tmp/ros2-apt-source.deb
+
+# Clean up apt cache
+RUN apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
+
 RUN apt-get update && apt-get install -y --no-install-recommends \
     ros-humble-navigation2 \
-    ros-humble-nav2-bringup
+    ros-humble-nav2-bringup \
+    ros-humble-turtlebot3 \
+    ros-humble-turtlebot3-msgs \
+    ros-humble-turtlebot3-bringup \ 
+    ros-humble-ld08-driver \
+    ros-humble-xacro
 
 # ================= ROS2 Setup ======================
 # Localhost-Only Communication
 # RUN echo "export ROS_LOCALHOST_ONLY=1" >> /home/work/.bashrc
 # Set Domain ID
-# RUN echo "export ROS_DOMAIN_ID=11" >> /home/work/.bashrc
-
+# RUN echo "export ROS_DOMAIN_ID=89" >> /home/work/.bashrc
+RUN echo "source /opt/ros/humble/setup.bash" >> /home/work/.bashrc
 
 
 
